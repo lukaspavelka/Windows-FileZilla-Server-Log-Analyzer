@@ -1,37 +1,47 @@
-# Windows-FileZilla-Server-Log-Analyzer
-A high-performance PowerShell tool for FileZilla Server (v1.x &amp; legacy). It provides automated summaries of data transfer volumes (MB), identifies brute-force attacks and bot scans, tracks successful logins, and identifies common 550 file errors. Includes IP whitelisting and time-based log filtering. Ideal for automated server audits.
+# 🛡️ Windows FileZilla Server Log Analyzer
 
-🚀 Key Features
-Managed Volume Calculation: Accurately calculates data transfer (MB) per IP by tracking session states and 213/226 FTP status codes.
-Security Auditing: Automatically identifies and groups brute-force login attempts and automated bot scans.
-IP Whitelisting: Exclude internal servers or trusted backup IPs from security alerts while still tracking their data usage.
-Time-Based Filtering: Configurable look-back period (e.g., last 30 days) to optimize performance on large log sets.
-Multi-Version Support: Compatible with modern FileZilla Server 1.x and legacy log formats.
-Error Tracking: Summarizes frequent 550 "File Not Found" errors to help debug failed client syncs.
+![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+![Status: Production](https://img.shields.io/badge/Status-Production-success.svg?style=for-the-badge)
 
-🛠️ Configuration
-Open the script in any text editor and modify the header variables:
+A professional PowerShell-based security and traffic audit tool designed for **FileZilla Server (v1.x and Legacy)**. This script parses complex FTP logs to provide clear, actionable insights for system administrators.
 
-PowerShell
 
-$logFolder     = "C:\Path\To\Your\Logs\"  # Path to FileZilla logs
-$DaysLimit     = 30                       # Only process recent logs
-$IPWhitelist   = @("192.168.1.12", "...") # IPs to ignore in security alerts
 
-📋 Usage
-Download FileZillaLogAnalyzer.ps1.
-Right-click the file and select Run with PowerShell.
+## ✨ Key Features
 
-Note: You may need to bypass the execution policy for the current session:
+* 📊 **Managed Volume Calculation:** Accurately calculates total data transfer (MB) per IP using session-state tracking.
+* 🔒 **Security Audit:** Detects and groups brute-force login attempts and automated bot scans.
+* ⚪ **IP Whitelisting:** Define trusted IPs (e.g., internal backup servers) to exclude them from security alerts.
+* ⏳ **Time-Based Filtering:** Configurable variable to process only logs from the last X days (e.g., last 30 days).
+* 📁 **Error 550 Context:** Identifies and lists the specific filenames causing "File Not Found" errors.
+* 🌍 **English Output:** Clean, localized console output with no encoding/character issues.
 
-PowerShell
+## 🛠️ Configuration
 
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
-.\FileZillaLogAnalyzer.ps1
+At the top of the script, you can customize the following variables:
 
-📊 Sample Output
-Plaintext
+| Variable | Description |
+| :--- | :--- |
+| `$logFolder` | The path where your FileZilla Server logs are stored. |
+| `$DaysLimit` | How many days of history to analyze (e.g., `30`). |
+| `$IPWhitelist` | An array of IPs that should be ignored in security reports. |
 
+## 🚀 How to Use
+
+1.  Download the `FileZillaLogAnalyzer.ps1` script.
+2.  Open the script and set your `$logFolder` path.
+3.  Right-click the file and select **Run with PowerShell**.
+4.  If you have execution policy restrictions, run this command in your terminal first:
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+    ```
+
+
+
+## 📊 Sample Output
+
+```text
 ===========================================================
    FILEZILLA SERVER LOG ANALYZER - v28
    Author: Lukas Pavelka (lukas.pavelka@gmail.com)
@@ -45,12 +55,12 @@ Total Managed Volume: 10406.87 MB
  -> 192.168.1.12    | 10406.87 MB
 ------------------------------------
 [!] FAILED LOGINS (External Only)
+IP Address      Attempts
+----------      --------
+84.0.116.35            5
 ...
-
-👤 Author
-Lukas Pavelka
-Email: lukas.pavelka@gmail.com
-GitHub: @lukaspavelka
+👨‍💻 Author
+Lukas Pavelka 📧 Email: lukas.pavelka@gmail.com
 
 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - free for personal and commercial use.
