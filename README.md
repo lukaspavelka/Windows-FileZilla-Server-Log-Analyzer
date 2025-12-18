@@ -32,7 +32,8 @@ At the top of the script, you can customize the following variables:
 1.  Download the `FileZillaLogAnalyzer.ps1` script.
 2.  Open the script and set your `$logFolder` path.
 3.  Right-click the file and select **Run with PowerShell**.
-4.  If you have execution policy restrictions, run this command in your terminal first:
+4.  Run PowerShell as Administrator (Recommended). ///or/// Alternatively, ensure the user account executing the script has explicit Read permissions for the FileZilla log folder.
+5.  If you have execution policy restrictions, run this command in your terminal first:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
     ```
