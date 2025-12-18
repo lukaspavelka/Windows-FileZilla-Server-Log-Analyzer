@@ -37,6 +37,11 @@ At the top of the script, you can customize the following variables:
     Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
     ```
 
+##  👨‍💻 Author
+Lukas Pavelka 📧 Email: lukas.pavelka@gmail.com
+
+📄 License
+This project is licensed under the MIT License - free for personal and commercial use.
 
 
 ## 📊 Sample Output
@@ -59,8 +64,4 @@ IP Address      Attempts
 ----------      --------
 84.0.116.35            5
 ...
-👨‍💻 Author
-Lukas Pavelka 📧 Email: lukas.pavelka@gmail.com
 
-📄 License
-This project is licensed under the MIT License - free for personal and commercial use.
